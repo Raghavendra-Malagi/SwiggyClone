@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: "Nunito", sans-serif;
+    }
+}
+/* body{
+  background-color: #010824;
+  color:#eee;
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(
+    to right,transparent 0 49px,#eee 49px 50px 
+  ),
+  repeating-linear-gradient(to bottom,transparent 0 49px,#eee 49px 50px )
+} */
+
+.active{
+ left: 0%;
+ transition-delay: 2s;
+}
