@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import Card from "../components/Card";
+import Card, { AdCard } from "../components/Card";
 import { API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { FaSearch } from "react-icons/fa";
+import { AdCard } from "../components/Card";
+import { NewCard } from "../components/Card";
 const Cards = (props) => {
   const { title } = props;
   const [resList, setResList] = useState([]);
@@ -11,7 +13,7 @@ const Cards = (props) => {
   // const [isSubmitted, setIsSubmitted] = useState(true);
   const [filteredList, setFilteredList] = useState([]);
   const inputRef = useRef();
-
+  console.log(filteredList);
   const handleInputText = () => {
     setName(inputRef.current.value);
     // {
@@ -39,6 +41,7 @@ const Cards = (props) => {
   };
 
   if (resList.length === 0) return <Shimmer />;
+  const PromotedCard = AdCard(Card);
   return (
     <>
       <div>
@@ -80,8 +83,9 @@ const Cards = (props) => {
         </button>
       </div>
       <div className="flex flex-wrap">
+        {filteredList[0] && <NewCard resData={filteredList[0]} />}
         {filteredList.map((res, index) => (
-          <Card key={index} resData={res} />
+          <PromotedCard key={index} resData={res} />
         ))}
       </div>
     </>
